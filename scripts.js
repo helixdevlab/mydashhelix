@@ -21,33 +21,14 @@ const db = getFirestore(app);
 
 
 // Función para obtener los últimos 50 registros
+// Función para obtener los últimos 50 registros
 async function fetchProductivityData() {
     try {
-        // Verificar si estamos en un entorno de producción (Firebase Hosting)
-        const isProduction = window.location.hostname.includes('firebaseapp.com');
+        // Para GitHub Pages, puedes usar una API proxy o datos simulados
+        // Aquí usamos datos simulados porque GitHub Pages no permite acceso directo a Firebase desde el frontend
         
-        if (!isProduction) {
-            // En entorno local, mostrar mensaje de error
-            console.warn('Para acceder a datos reales, debes desplegar en Firebase Hosting');
-            return [];
-        }
-        
-        const querySnapshot = await getDocs(
-            collection(db, "productivity_data"),
-            orderBy("timestamp", "desc"),
-            limit(50)
-        );
-        
-        const data = [];
-        querySnapshot.forEach((doc) => {
-            data.push(doc.data());
-        });
-        
-        return data;
-    } catch (error) {
-        console.error("Error al obtener datos:", error);
-        // En entorno local, devolver datos de ejemplo
-        return [
+        // Simulación de datos reales (reemplaza con tu lógica real cuando lo despliegues en Firebase Hosting)
+        const mockData = [
             {
                 B_Name: "Juan Pérez",
                 C_Team: "GURREN",
@@ -67,10 +48,26 @@ async function fetchProductivityData() {
                 I_ENDTGT: 130.0,
                 J_ENDP_PCT: 104.0,
                 timestamp: new Date()
+            },
+            {
+                B_Name: "Carlos López",
+                C_Team: "SOULS",
+                D_Volume: 6.1,
+                F_Density: 1.3,
+                H_END: 110.8,
+                I_ENDTGT: 105.0,
+                J_ENDP_PCT: 105.5,
+                timestamp: new Date()
             }
         ];
+        
+        return mockData;
+    } catch (error) {
+        console.error("Error al obtener datos:", error);
+        return [];
     }
 }
+
 
 
 // Función para calcular métricas globales
@@ -183,3 +180,4 @@ document.addEventListener('DOMContentLoaded', initDashboard);
 
 // Actualizar datos cada 30 segundos
 setInterval(initDashboard, 30000);
+
