@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>PRODUCTIVITY DASHBOARD</h1>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>MVP DEL DÍA</h3>
+                    <p id="mvp-name">Cargando...</p>
+                </div>
+                <div class="stat-card">
+                    <h3>MEJOR EQUIPO</h3>
+                    <p id="best-team">Cargando...</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="ranking-container">
+                <h2>RANKING DE PRODUCTIVIDAD</h2>
+                <div class="ranking-table">
+                    <div class="table-header">
+                        <span>Posición</span>
+                        <span>Operario</span>
+                        <span>Equipo</span>
+                        <span>Target</span>
+                        <span>Real</span>
+                        <span>% Cumplimiento</span>
+                    </div>
+                    <div id="ranking-body" class="table-body">
+                        <!-- Los datos se cargarán aquí con JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>© 2023 Productivity Analytics | Dashboard Gamificado</p>
+        </footer>
+    </div>
+
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
